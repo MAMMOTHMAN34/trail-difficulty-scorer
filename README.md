@@ -1,7 +1,7 @@
 # 🏔️ Trail Difficulty Scorer
 
-An end-to-end geospatial machine learning project that predicts hiking trail
-difficulty from elevation and route geometry — then serves predictions through a
+A geospatial machine learning project that predicts hiking trail
+difficulty from elevation and route geometry, then predicts through a
 live web app where users upload a `.gpx` file and get an instant difficulty score
 with a terrain breakdown.
 
