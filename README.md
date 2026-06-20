@@ -25,6 +25,27 @@ It combines geospatial data engineering and machine learning, built around a per
 - Deploys a **Streamlit** web app (backed by a **FastAPI** service) where users
   upload a `.gpx` file and get a difficulty prediction + feature breakdown
 
+## Early findings (12-trail pilot)
+
+Even with a small pilot set of 12 labelled trails, a clear signal emerged.
+Average steepness rises steadily with difficulty:
+
+| Difficulty       | Mean slope | % of trail steep (>20°) |
+|------------------|------------|-------------------------|
+| Easy             | 7.7°       | 8.6%                    |
+| Moderate         | 12.2°      | 17.7%                   |
+| Very difficult   | 15.2°      | 29.2%                   |
+
+But the *difficult* trails broke the pattern — low steepness, yet the longest
+distances. These were multi-day South African routes (the Amatola legs, 16–18 km):
+hard because they're **long and remote**, not steep.
+
+**Takeaway:** difficulty is multi-dimensional. Some trails are hard because they're
+steep, others because they're long — so no single feature captures it. This is
+exactly why the project uses a *model* that combines features rather than a simple
+rule, and why SHAP is used to reveal, per trail, whether distance or slope drives
+the rating.
+
 ## Tech stack
 
 | Layer            | Tools                                          |

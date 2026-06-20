@@ -1,0 +1,13 @@
+distance_km,elevation_gain_m,elevation_loss_m,gain_rate_m_per_km,max_elevation_m,min_elevation_m,elevation_range_m,mean_slope_deg,max_slope_deg,slope_variability,pct_steep_segments,exposure_index,difficulty,filename
+13.48,1301,1301,96.5,1847,792,1055,13.4,61.0,9.9,18.8,0.22,moderate,dolomitas-anello-della-cima-dellalbero-gruppo-del-bosconero-.gpx
+5.95,243,284,40.8,186,38,149,7.8,61.0,10.4,8.6,0.22,easy,cerdena-cala-fuili-cala-luna-vuelta-en-barco.gpx
+9.38,568,568,60.6,1085,693,392,8.6,47.5,8.4,10.3,0.19,difficult,steamers-2021-update.gpx
+12.21,606,621,49.6,1645,1271,374,7.8,50.6,7.8,7.7,0.12,moderate,mount-baker-wa-usa-chain-lakes-trail.gpx
+8.09,967,963,119.6,2570,1615,955,17.8,60.5,11.7,35.2,0.15,very difficult,anello-monte-camicia-monte-tramoggia-campo-imperatore.gpx
+11.08,928,903,83.8,2907,2129,778,12.7,56.2,11.3,22.8,0.11,very difficult,corno-grande-picco-confalonieri-e-rifugio-duca-degli-abruzzi.gpx
+16.66,756,687,45.4,1525,1039,486,6.9,58.5,7.4,5.2,0.1,difficult,the-amatola-trail-day-5-mnyameni-to-zingcuka-mnyameni-easter.gpx
+17.68,526,744,29.7,1287,985,302,5.4,55.7,6.0,3.2,0.09,difficult,the-amatola-trail-day-2-gwiligwili-to-donsta-gwiligwili-east.gpx
+12.16,1338,1335,110.1,2587,1401,1186,15.4,73.0,12.7,26.5,0.17,moderate,chamonix-mont-blanc-la-jonction-mirador-glaciar-bossons-chal.gpx
+11.84,962,960,81.3,2499,1590,909,11.6,62.1,9.8,16.3,0.23,easy,alp-04-las-tres-cascadas-y-el-refugio-deffeyes-the-three-wat.gpx
+8.38,216,209,25.8,575,438,136,3.8,46.8,4.5,0.8,0.18,easy,krom-river-trail-limietberg-nr-du-toitskloof-paarl.gpx
+13.18,1202,1189,91.2,1220,125,1096,15.1,63.3,13.0,29.7,0.19,very difficult,mt-barney-via-ser-summit-route.gpx
