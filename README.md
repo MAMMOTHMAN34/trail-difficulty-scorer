@@ -1,24 +1,18 @@
-# 🏔️ Trail Difficulty Scorer
+# Trail Difficulty Scorer
 
 A geospatial machine learning project that predicts hiking trail
 difficulty from elevation and route geometry, then predicts through a
 live web app where users upload a `.gpx` file and get an instant difficulty score
 with a terrain breakdown.
 
-> **Status:** 🚧 In active development. Building in public, one module at a time.
-
 ---
 
 ## Why this project
 
 Trail difficulty ratings (Easy / Moderate / Hard) are everywhere on hiking apps,
-but they're subjective and inconsistent across regions. This project asks:
-**can we predict difficulty objectively from terrain alone?** — and explain
-*which* terrain features drive the rating.
+but they're subjective and inconsistent across regions. This project aims to explore if we can predict difficulty objectively from terrain alone, and explain which terrain features drive the rating.
 
-It combines geospatial data engineering, machine learning, model explainability,
-and a deployed product — built around a personal love of hiking across Southeast
-Asia and Patagonia.
+It combines geospatial data engineering and machine learning, built around a personal love of hiking.
 
 ## What it does
 
