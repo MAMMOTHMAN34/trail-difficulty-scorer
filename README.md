@@ -17,7 +17,7 @@ It combines geospatial data engineering and machine learning, built around a per
 ## What it does
 
 - Pulls route geometry from **OpenStreetMap** (via OSMnx) and elevation from the
-  **OpenTopoData API** for 100+ trails across SEA and Patagonia
+  **OpenTopoData API** for 100+ trails across different regions
 - Engineers terrain features: elevation gain rate, cumulative ascent/descent,
   slope variance, exposure index (ridge vs valley), and more
 - Trains and compares **XGBoost vs Random Forest** classifiers
@@ -36,15 +36,12 @@ Average steepness rises steadily with difficulty:
 | Moderate         | 12.2°      | 17.7%                   |
 | Very difficult   | 15.2°      | 29.2%                   |
 
-But the *difficult* trails broke the pattern — low steepness, yet the longest
+But the *difficult* trails broke the pattern: low steepness, yet the longest
 distances. These were multi-day South African routes (the Amatola legs, 16–18 km):
 hard because they're **long and remote**, not steep.
 
 **Takeaway:** difficulty is multi-dimensional. Some trails are hard because they're
-steep, others because they're long — so no single feature captures it. This is
-exactly why the project uses a *model* that combines features rather than a simple
-rule, and why SHAP is used to reveal, per trail, whether distance or slope drives
-the rating.
+steep, others because they're long. This is exactly why the project uses a *model* that combines features rather than a simple rule, and why SHAP is used to reveal, per trail, whether distance or slope drives the rating.
 
 ## Tech stack
 
