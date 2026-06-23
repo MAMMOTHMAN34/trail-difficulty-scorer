@@ -3,6 +3,7 @@ osmnx>=2.0
 geopandas>=0.14
 shapely>=2.0
 gpxpy>=1.6
+defusedxml>=0.7
 requests>=2.31
 
 # Data & features

@@ -9,6 +9,11 @@ code, and the web app — so the features are computed identically everywhere.
 import gpxpy
 import numpy as np
 import pandas as pd
+from defusedxml.ElementTree import fromstring as _safe_xml_parse
+from defusedxml.common import DefusedXmlException
+
+# Upper bound on track points we'll process from an uploaded file (DoS guard).
+MAX_POINTS = 3000
 
 
 def _gpx_to_df(gpx):
@@ -35,8 +40,28 @@ def load_trail(path):
 
 
 def load_trail_from_text(text):
-    """Parse GPX content (a string, e.g. from an uploaded file) into a DataFrame."""
-    return _gpx_to_df(gpxpy.parse(text))
+    """
+    Parse GPX content (a string from an uploaded file) into a DataFrame.
+
+    Hardened for untrusted input: rejects malicious XML (entity-expansion bombs,
+    external entities) before parsing, and caps the number of points processed.
+    """
+    # Safety gate: screen the XML before gpxpy touches it
+    try:
+        _safe_xml_parse(text)
+    except DefusedXmlException:
+        raise ValueError("This file was rejected as potentially malicious XML.")
+    except Exception:
+        raise ValueError("This doesn't look like a valid GPX file.")
+
+    df = _gpx_to_df(gpxpy.parse(text))
+
+    # Cap points so an oversized (but valid) track can't exhaust memory
+    if len(df) > MAX_POINTS:
+        idx = np.linspace(0, len(df) - 1, MAX_POINTS).astype(int)
+        df = df.iloc[idx].reset_index(drop=True)
+
+    return df
 
 
 def haversine(lat1, lon1, lat2, lon2):

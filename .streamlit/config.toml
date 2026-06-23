@@ -1,0 +1,13 @@
+# Forest palette — dark base with sage-green accents.
+[theme]
+base = "dark"
+primaryColor = "#8ea57f"
+backgroundColor = "#0b1317"
+secondaryBackgroundColor = "#192c20"
+textColor = "#e8efe4"
+font = "sans serif"
+
+# Cap uploads at 5 MB — a real GPX track is tens of KB, so this blocks
+# oversized-file memory attacks while never affecting legitimate uploads.
+[server]
+maxUploadSize = 5

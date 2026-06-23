@@ -22,8 +22,8 @@ It combines geospatial data engineering and machine learning, built around a per
   slope variance, exposure index (ridge vs valley), and more
 - Trains and compares **XGBoost vs Random Forest** classifiers
 - Uses **SHAP** values to explain which terrain features matter most
-- Deploys a **Streamlit** web app (backed by a **FastAPI** service) where users
-  upload a `.gpx` file and get a difficulty prediction + feature breakdown
+- Deploys a **Streamlit** web app where users upload a `.gpx` file and get a
+  difficulty prediction + feature breakdown
 
 ## Early findings (116-trail dataset)
 
@@ -59,6 +59,32 @@ the *endurance* factors, with steepness in a supporting role. The labels are
 subjective single-source ratings, so explainable performance matters more
 here than a headline accuracy number.
 
+## Limitations
+
+The model predicts difficulty from **route geometry alone** — distance, elevation
+gain/loss, slope, and exposure. That captures a lot, but real-world difficulty
+ratings also depend on things a GPX track simply doesn't contain:
+
+- **Technical terrain** — rock scrambles, ladders, roots, loose footing, stream
+  crossings. A trail can be physically gentle but technically demanding.
+- **Trail surface, navigation, and exposure** to weather or drop-offs.
+
+This shows up clearly on **long but gentle technical trails**. For example,
+Luxembourg's Mullerthal "Little Switzerland" (24 km) and the M³ Moselle Trail
+(33 km) are both rated *difficult* on Wikiloc, but their mean slope is only ~4°
+with under 3% steep segments — *flatter than the average easy trail in the dataset*.
+The model sees gentle terrain and predicts **moderate**, because the rocky, scrambly
+character that makes them hard is invisible to elevation data.
+
+There's also a **training-distribution gap**: the 116 trails contain few long-but-flat
+routes, so the model hasn't strongly learned that distance alone (without steepness)
+can mean difficult. Closing this would need both more such trails in the training set
+and features describing trail surface/technicality that GPX doesn't provide.
+
+**Takeaway:** terrain geometry explains much of trail difficulty, but not all of it —
+and the honest framing of *what the model can and can't see* matters more than chasing
+a headline accuracy number on inherently subjective labels.
+
 ## Tech stack
 
 | Layer            | Tools                                          |
@@ -66,7 +92,7 @@ here than a headline accuracy number.
 | Data sourcing    | OSMnx, OpenTopoData API, gpxpy                 |
 | Feature eng.     | pandas, numpy, geopandas, shapely             |
 | Modelling        | scikit-learn (Random Forest), XGBoost, SHAP   |
-| App & serving    | Streamlit, FastAPI                            |
+| App & serving    | Streamlit                                     |
 | Deployment       | Render (free tier)                            |
 
 ## Project structure
@@ -81,13 +107,23 @@ trail-difficulty-scorer/
 └── README.md
 ```
 
+## Running locally
+
+```bash
+python -m venv venv && source venv/bin/activate
+pip install -r requirements.txt
+streamlit run app/streamlit_app.py
+```
+
+Then open http://localhost:8501 and upload a `.gpx` file.
+
 ## Roadmap
 
 - [x] Data pipeline: GPX parsing + elevation features
 - [x] Feature engineering (12 terrain features)
 - [x] Manual difficulty labelling (Wikiloc ground truth) — 116 trails, balanced
 - [x] Model training + SHAP analysis
-- [ ] Web app
+- [x] Web app (Streamlit)
 - [ ] Live deployment
 
 ---
