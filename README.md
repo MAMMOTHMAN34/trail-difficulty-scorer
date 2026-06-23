@@ -25,23 +25,26 @@ It combines geospatial data engineering and machine learning, built around a per
 - Deploys a **Streamlit** web app (backed by a **FastAPI** service) where users
   upload a `.gpx` file and get a difficulty prediction + feature breakdown
 
-## Early findings (12-trail pilot)
+## Early findings (116-trail dataset)
 
-Even with a small pilot set of 12 labelled trails, a clear signal emerged.
-Average steepness rises steadily with difficulty:
+Across 116 hand-labelled trails, a balanced 29 per difficulty level, terrain
+features rise cleanly with difficulty:
 
-| Difficulty       | Mean slope | % of trail steep (>20°) |
-|------------------|------------|-------------------------|
-| Easy             | 7.7°       | 8.6%                    |
-| Moderate         | 12.2°      | 17.7%                   |
-| Very difficult   | 15.2°      | 29.2%                   |
+| Difficulty       | Avg distance | Avg climb | Mean slope | % steep (>20°) |
+|------------------|--------------|-----------|------------|----------------|
+| Easy             | 9.6 km       | 416 m     | 7.1°       | 7.2%           |
+| Moderate         | 15.1 km      | 838 m     | 8.9°       | 11.1%          |
+| Difficult        | 12.5 km      | 911 m     | 10.3°      | 14.5%          |
+| Very difficult   | 23.3 km      | 1,362 m   | 10.7°      | 14.9%          |
 
-But the *difficult* trails broke the pattern: low steepness, yet the longest
-distances. These were multi-day South African routes (the Amatola legs, 16–18 km):
-hard because they're **long and remote**, not steep.
+Steepness, total climb, and climb-rate all increase step-by-step from easy to very
+difficult. But notice the top two rows: *difficult* and *very difficult* are almost
+identical in steepness (10.3° vs 10.7°); what sets them apart is **distance
+(12.5 → 23.3 km) and total climb (911 → 1,362 m)**. At the hard end it's *endurance*,
+not steepness, that tips a trail into "very difficult."
 
 **Takeaway:** difficulty is multi-dimensional. Some trails are hard because they're
-steep, others because they're long. This is exactly why the project uses a *model* that combines features rather than a simple rule, and why SHAP is used to reveal, per trail, whether distance or slope drives the rating.
+steep, others because they're long, so no single feature captures it. This is exactly why the project uses a *model* that combines features rather than a simple rule, and why SHAP is used to reveal, per trail, whether distance or slope drives the rating.
 
 ## Tech stack
 
@@ -67,9 +70,9 @@ trail-difficulty-scorer/
 
 ## Roadmap
 
-- [ ] Data pipeline: pull trail geometry + elevation
-- [ ] Feature engineering
-- [ ] Manual difficulty labelling (AllTrails / Wikiloc ground truth)
+- [x] Data pipeline: GPX parsing + elevation features
+- [x] Feature engineering (12 terrain features)
+- [x] Manual difficulty labelling (Wikiloc ground truth) — 116 trails, balanced
 - [ ] Model training + SHAP analysis
 - [ ] Web app
 - [ ] Live deployment
