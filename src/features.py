@@ -11,14 +11,32 @@ import numpy as np
 import pandas as pd
 
 
+def _gpx_to_df(gpx):
+    """Collect every track (or route) point from a parsed GPX into a DataFrame."""
+    rows = []
+    for track in gpx.tracks:
+        for segment in track.segments:
+            for p in segment.points:
+                rows.append({"lat": p.latitude, "lon": p.longitude, "elevation_m": p.elevation})
+    if not rows:  # some files store points as routes instead of tracks
+        for route in gpx.routes:
+            for p in route.points:
+                rows.append({"lat": p.latitude, "lon": p.longitude, "elevation_m": p.elevation})
+    if not rows:
+        raise ValueError("No track or route points found in this GPX file.")
+    return pd.DataFrame(rows)
+
+
 def load_trail(path):
-    """Read a GPX file and return a DataFrame of its track points."""
+    """Read a GPX file from disk and return a DataFrame of its track points."""
     with open(path, "r", encoding="utf-8") as f:
         gpx = gpxpy.parse(f)
-    points = gpx.tracks[0].segments[0].points
-    return pd.DataFrame(
-        [{"lat": p.latitude, "lon": p.longitude, "elevation_m": p.elevation} for p in points]
-    )
+    return _gpx_to_df(gpx)
+
+
+def load_trail_from_text(text):
+    """Parse GPX content (a string, e.g. from an uploaded file) into a DataFrame."""
+    return _gpx_to_df(gpxpy.parse(text))
 
 
 def haversine(lat1, lon1, lat2, lon2):

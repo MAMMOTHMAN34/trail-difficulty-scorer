@@ -49,14 +49,14 @@ steep, others because they're long, so no single feature captures it. This is ex
 ## Model results
 
 A **Random Forest** (trained on the 116 trails, 5-fold cross-validated) reaches
-**~41% exact accuracy** on the 4-level scale and **~72% within one level** — its
+**~41% exact accuracy** on the 4-level scale and **~72% within one level**. Its
 mistakes are almost always near-misses between adjacent difficulties, not wild
 errors. (XGBoost underperforms on a dataset this small.)
 
-Crucially, **SHAP** shows the model relies on sensible terrain features — led by
+Crucially, **SHAP** shows the model relies on sensible terrain features, led by
 total climb (`elevation_gain_m`), elevation loss, climb-rate, and distance, i.e.
 the *endurance* factors, with steepness in a supporting role. The labels are
-subjective single-source ratings, so honest, explainable performance matters more
+subjective single-source ratings, so explainable performance matters more
 here than a headline accuracy number.
 
 ## Tech stack
