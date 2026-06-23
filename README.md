@@ -40,7 +40,7 @@ features rise cleanly with difficulty:
 Steepness, total climb, and climb-rate all increase step-by-step from easy to very
 difficult. But notice the top two rows: *difficult* and *very difficult* are almost
 identical in steepness (10.3° vs 10.7°); what sets them apart is **distance
-(12.5 → 23.3 km) and total climb (911 → 1,362 m)**. At the hard end it's *endurance*,
+(12.5 → 23.3 km) and total climb (911 → 1,362 m)**. It's *endurance*,
 not steepness, that tips a trail into "very difficult."
 
 **Takeaway:** difficulty is multi-dimensional. Some trails are hard because they're
@@ -61,18 +61,18 @@ here than a headline accuracy number.
 
 ## Limitations
 
-The model predicts difficulty from **route geometry alone** — distance, elevation
+The model predicts difficulty from **route geometry alone**: distance, elevation
 gain/loss, slope, and exposure. That captures a lot, but real-world difficulty
 ratings also depend on things a GPX track simply doesn't contain:
 
-- **Technical terrain** — rock scrambles, ladders, roots, loose footing, stream
+- **Technical terrain**: rock scrambles, ladders, roots, loose footing, stream
   crossings. A trail can be physically gentle but technically demanding.
 - **Trail surface, navigation, and exposure** to weather or drop-offs.
 
 This shows up clearly on **long but gentle technical trails**. For example,
 Luxembourg's Mullerthal "Little Switzerland" (24 km) and the M³ Moselle Trail
 (33 km) are both rated *difficult* on Wikiloc, but their mean slope is only ~4°
-with under 3% steep segments — *flatter than the average easy trail in the dataset*.
+with under 3% steep segments, *flatter than the average easy trail in the dataset*.
 The model sees gentle terrain and predicts **moderate**, because the rocky, scrambly
 character that makes them hard is invisible to elevation data.
 
@@ -81,9 +81,7 @@ routes, so the model hasn't strongly learned that distance alone (without steepn
 can mean difficult. Closing this would need both more such trails in the training set
 and features describing trail surface/technicality that GPX doesn't provide.
 
-**Takeaway:** terrain geometry explains much of trail difficulty, but not all of it —
-and the honest framing of *what the model can and can't see* matters more than chasing
-a headline accuracy number on inherently subjective labels.
+**Takeaway:** terrain geometry explains much of trail difficulty, but not all of it.
 
 ## Tech stack
 
