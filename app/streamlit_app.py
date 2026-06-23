@@ -22,7 +22,7 @@ from predict import predict_from_gpx_text, explain_prediction
 
 # ── Page setup ────────────────────────────────────────────────────────────────
 
-st.set_page_config(page_title="Trail Difficulty Scorer", page_icon="🏔️", layout="wide")
+st.set_page_config(page_title="Trail Difficulty Scorer", layout="wide")
 
 # Forest ramp: light sage (easy) → near-black green (very difficult).
 COLOURS = {
@@ -273,5 +273,5 @@ st.download_button(
 
 st.caption(
     "Difficulty is predicted by a Random Forest trained on Wikiloc-labelled trails. "
-    "Ratings are inherently subjective — treat this as a helpful estimate, not gospel."
+    "Ratings are inherently subjective; treat this as a helpful estimate."
 )
