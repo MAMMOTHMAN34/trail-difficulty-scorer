@@ -5,7 +5,7 @@ difficulty from elevation and route geometry, then predicts through a
 live web app where users upload a `.gpx` file and get an instant difficulty score
 with a terrain breakdown.
 
-**🌐 Live app: [trail-difficulty-scorer.onrender.com](https://trail-difficulty-scorer.onrender.com)**
+**Live app: [trail-difficulty-scorer.onrender.com](https://trail-difficulty-scorer.onrender.com)**
 
 ---
 
