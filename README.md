@@ -46,6 +46,19 @@ not steepness, that tips a trail into "very difficult."
 **Takeaway:** difficulty is multi-dimensional. Some trails are hard because they're
 steep, others because they're long, so no single feature captures it. This is exactly why the project uses a *model* that combines features rather than a simple rule, and why SHAP is used to reveal, per trail, whether distance or slope drives the rating.
 
+## Model results
+
+A **Random Forest** (trained on the 116 trails, 5-fold cross-validated) reaches
+**~41% exact accuracy** on the 4-level scale and **~72% within one level** — its
+mistakes are almost always near-misses between adjacent difficulties, not wild
+errors. (XGBoost underperforms on a dataset this small.)
+
+Crucially, **SHAP** shows the model relies on sensible terrain features — led by
+total climb (`elevation_gain_m`), elevation loss, climb-rate, and distance, i.e.
+the *endurance* factors, with steepness in a supporting role. The labels are
+subjective single-source ratings, so honest, explainable performance matters more
+here than a headline accuracy number.
+
 ## Tech stack
 
 | Layer            | Tools                                          |
@@ -73,7 +86,7 @@ trail-difficulty-scorer/
 - [x] Data pipeline: GPX parsing + elevation features
 - [x] Feature engineering (12 terrain features)
 - [x] Manual difficulty labelling (Wikiloc ground truth) — 116 trails, balanced
-- [ ] Model training + SHAP analysis
+- [x] Model training + SHAP analysis
 - [ ] Web app
 - [ ] Live deployment
 

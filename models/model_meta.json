@@ -1,0 +1,22 @@
+{
+  "features": [
+    "distance_km",
+    "elevation_gain_m",
+    "elevation_loss_m",
+    "gain_rate_m_per_km",
+    "max_elevation_m",
+    "min_elevation_m",
+    "elevation_range_m",
+    "mean_slope_deg",
+    "max_slope_deg",
+    "slope_variability",
+    "pct_steep_segments",
+    "exposure_index"
+  ],
+  "order": [
+    "easy",
+    "moderate",
+    "difficult",
+    "very difficult"
+  ]
+}
