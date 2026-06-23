@@ -1,0 +1,14 @@
+# Runtime dependencies for the Streamlit web app (used on Render).
+# The full requirements.txt also includes notebook/training libs not needed here.
+gpxpy>=1.6
+defusedxml>=0.7
+requests>=2.31
+pandas>=2.0
+numpy>=1.26
+scikit-learn>=1.4
+shap>=0.44
+joblib>=1.3
+streamlit>=1.33
+plotly>=5.20
+folium>=0.16
+streamlit-folium>=0.20
