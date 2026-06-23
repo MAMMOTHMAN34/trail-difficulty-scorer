@@ -107,15 +107,6 @@ trail-difficulty-scorer/
 └── README.md
 ```
 
-## Roadmap
-
-- [x] Data pipeline: GPX parsing + elevation features
-- [x] Feature engineering (12 terrain features)
-- [x] Manual difficulty labelling (Wikiloc ground truth) — 116 trails, balanced
-- [x] Model training + SHAP analysis
-- [x] Web app (Streamlit)
-- [x] Live deployment (Render)
-
 ---
 
 *Built by a data science & economics undergrad exploring environmental data science.*
