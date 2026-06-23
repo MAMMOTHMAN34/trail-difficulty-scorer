@@ -6,7 +6,6 @@ live web app where users upload a `.gpx` file and get an instant difficulty scor
 with a terrain breakdown.
 
 **🌐 Live app: [trail-difficulty-scorer.onrender.com](https://trail-difficulty-scorer.onrender.com)**
-*(free tier — the first visit after a gap takes ~30s to wake up)*
 
 ---
 
@@ -107,18 +106,6 @@ trail-difficulty-scorer/
 ├── requirements.txt
 └── README.md
 ```
-
-## Running locally
-
-Or just use the [live app](https://trail-difficulty-scorer.onrender.com) — no setup needed.
-
-```bash
-python -m venv venv && source venv/bin/activate
-pip install -r requirements.txt
-streamlit run app/streamlit_app.py
-```
-
-Then open http://localhost:8501 and upload a `.gpx` file.
 
 ## Roadmap
 
