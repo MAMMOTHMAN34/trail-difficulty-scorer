@@ -12,7 +12,7 @@ with a terrain breakdown.
 ## Why this project
 
 Trail difficulty ratings (Easy / Moderate / Hard) are everywhere on hiking apps,
-but they're subjective and inconsistent across regions. This project aims to explore if we can predict difficulty objectively from terrain alone, and explain which terrain features drive the rating.
+but they're subjective and inconsistent across regions. This project aims to explore if I can predict difficulty objectively from terrain alone, and explain which terrain features drive the rating.
 
 It combines geospatial data engineering and machine learning, built around a personal love of hiking.
 
@@ -85,7 +85,7 @@ and features describing trail surface/technicality that GPX doesn't provide.
 
 **Takeaway:** terrain geometry explains much of trail difficulty, but not all of it.
 
-## Tech stack
+## Stack
 
 | Layer            | Tools                                          |
 |------------------|------------------------------------------------|
@@ -106,7 +106,3 @@ trail-difficulty-scorer/
 ├── requirements.txt
 └── README.md
 ```
-
----
-
-*Built by a data science & economics undergrad exploring environmental data science.*
