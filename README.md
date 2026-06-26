@@ -85,6 +85,21 @@ and features describing trail surface/technicality that GPX doesn't provide.
 
 **Takeaway:** terrain geometry explains much of trail difficulty, but not all of it.
 
+### Next steps
+
+Given more time, there are the most promising directions, roughly in order of expected payoff:
+
+- **Close the data gap.** Add more long-but-gentle and technical trails so the model
+  learns that distance alone (without steepness) can mean difficult. This is the single
+  biggest lever, since it directly addresses the under-rating shown above.
+- **Add technicality features.** Enrich each route with OpenStreetMap trail tags
+  (`sac_scale`, `trail_visibility`, `surface`) to capture the rocky/scrambly character
+  that elevation data can't see.
+- **Reduce label noise.** Average difficulty across multiple sources (Wikiloc, AllTrails,
+  Komoot) instead of a single subjective rating, giving the model a cleaner target.
+- **Model difficulty as ordinal.** Use ordinal regression so the model is penalised more
+  for predicting *easy* on a *very difficult* trail than for an adjacent near-miss.
+
 ## Stack
 
 | Layer            | Tools                                          |
