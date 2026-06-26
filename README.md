@@ -87,7 +87,7 @@ and features describing trail surface/technicality that GPX doesn't provide.
 
 ### Next steps
 
-Given more time, there are the most promising directions, roughly in order of expected payoff:
+Given more time, here are the most promising directions, roughly in order of expected payoff:
 
 - **Close the data gap.** Add more long-but-gentle and technical trails so the model
   learns that distance alone (without steepness) can mean difficult. This is the single
@@ -121,3 +121,10 @@ trail-difficulty-scorer/
 ├── requirements.txt
 └── README.md
 ```
+
+## Acknowledgements
+
+This project was built with the help of **Claude** (Anthropic's AI assistant), which
+I used as a pair-programming and learning partner. I made the design, data, and
+modelling decisions and reviewed all the code, using Claude to learn geospatial
+feature engineering, machine learning, and Streamlit deployment side by side as I went.

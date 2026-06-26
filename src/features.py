@@ -3,7 +3,7 @@ Reusable trail feature engineering.
 
 These three functions are the single source of truth for turning a GPX file
 into difficulty features. They're imported by the notebooks, the model training
-code, and the web app — so the features are computed identically everywhere.
+code, and the web app, so the features are computed identically everywhere.
 """
 
 import gpxpy
